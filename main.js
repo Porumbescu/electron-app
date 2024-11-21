@@ -4,16 +4,16 @@ const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
+      webviewTag: true, // Enable webview
     },
   });
 
-  const indexPath = path.join(__dirname, 'dist/electron-app/index.html');
-  console.log('Loading index.html from:', indexPath);
+  const indexPath = path.join(__dirname, 'index.html');
   win.loadFile(indexPath);
 
   // Optional: Open DevTools for debugging
