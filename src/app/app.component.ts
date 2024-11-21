@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TabOneComponent } from './tab-one/tab-one.component';
+import { TabTwoComponent } from './tab-two/tab-two.component';
+import { TabThreeComponent } from './tab-three/tab-three.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [
+    MatTabsModule,
+    TabOneComponent,
+    TabTwoComponent,
+    TabThreeComponent,
+  ],
 })
 export class AppComponent {
-  title = 'electron-app';
 }
