@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,22 +5,26 @@
   <title>Electron App with Tabs</title>
   <style>
     /* Basic styles for tabs */
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%; /* Ensure body has full viewport height */
       overflow: hidden;
     }
     #tabs {
       display: flex;
+      flex-direction: column;
       height: 100%;
     }
     .tab {
-      flex: 1;
       display: flex;
       flex-direction: column;
+      flex: 1; /* Make .tab fill the remaining space */
     }
     .tab-headers {
       display: flex;
       background-color: #f1f1f1;
+      flex-shrink: 0; /* Prevent headers from shrinking */
     }
     .tab-headers button {
       flex: 1;
@@ -35,14 +38,14 @@
       background-color: #ccc;
     }
     .tab-content {
-      flex: 1;
-      display: none;
-      height: 100%;
+      flex: 1; /* Allow .tab-content to grow and fill available space */
+      display: none; /* Hide by default */
     }
     .tab-content.active {
-      display: block;
+      display: flex; /* Use flex to allow webview to expand */
     }
     webview {
+      flex: 1; /* Allow webview to fill the parent container */
       width: 100%;
       height: 100%;
     }
@@ -52,18 +55,18 @@
 <div id="tabs">
   <div class="tab">
     <div class="tab-headers">
-      <button class="tablink" onclick="openTab(event, 'tab1')">Test 1</button>
-      <button class="tablink" onclick="openTab(event, 'tab2')">Test 2</button>
-      <button class="tablink" onclick="openTab(event, 'tab3')">Test 3</button>
+      <button class="tablink" onclick="openTab(event, 'tab1')">Google</button>
+      <button class="tablink" onclick="openTab(event, 'tab2')">YouTube</button>
+      <button class="tablink" onclick="openTab(event, 'tab3')">Wikipedia</button>
     </div>
     <div id="tab1" class="tab-content">
-      <webview src="app/index.html" nodeintegration></webview>
+      <webview src="https://www.google.com"></webview>
     </div>
     <div id="tab2" class="tab-content">
-      <webview src="app/index.html" nodeintegration></webview>
+      <webview src="https://www.youtusdsbe.com"></webview>
     </div>
     <div id="tab3" class="tab-content">
-      <webview src="app/index.html" nodeintegration></webview>
+      <webview src="https://www.wikipedia.org"></webview>
     </div>
   </div>
 </div>
@@ -83,7 +86,6 @@
     evt.currentTarget.classList.add('active');
   }
 
-  // Open the first tab by default
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.tablink').click();
   });

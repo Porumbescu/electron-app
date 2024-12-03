@@ -1,0 +1,25 @@
+/* src/app/app.component.css */
+.container {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.control-panel {
+  width: 300px; /* Must match controlPanelWidth in main.js */
+  background-color: #f0f0f0;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.control-panel input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.control-panel button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+

@@ -1,18 +1,12 @@
-<mat-tab-group>
-  <mat-tab label="Test 1">
-    <ng-template matTabContent>
-      <app-tab-one></app-tab-one>
-    </ng-template>
-  </mat-tab>
-  <mat-tab label="Test 2">
-    <ng-template matTabContent>
-      <app-tab-two></app-tab-two>
-    </ng-template>
-  </mat-tab>
-  <mat-tab label="Test 3">
-    <ng-template matTabContent>
-      <app-tab-three></app-tab-three>
-    </ng-template>
-  </mat-tab>
-</mat-tab-group>
-
+<!-- src/app/app.component.html -->
+<div class="container">
+  <div class="control-panel">
+    <input type="text" [(ngModel)]="webViewUrl" placeholder="Enter URL" />
+    <button type="button" (click)="createWebView()">Create WebView</button>
+    <div *ngFor="let view of views; let i = index">
+      <span>WebView {{ i }}</span>
+      <button type="button" (click)="removeWebView(i)">Remove</button>
+    </div>
+  </div>
+  <!-- The webviews will occupy the remaining space -->
+</div>
